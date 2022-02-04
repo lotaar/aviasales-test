@@ -1,4 +1,15 @@
+import { fetchData } from "../api/api";
+
 const SET_TAB = "SET-TAB";
+const SET_TICKETS = 'SET_TICKETS'
+
+
+const setTickets = (tickets) => {
+  return{
+    type:SET_TICKETS,
+    tickets
+  }
+}
 
 const setTabs = (id,text,isActive) => {
   return {
@@ -6,6 +17,20 @@ const setTabs = (id,text,isActive) => {
     data:{id,text,isActive}
   }
 }
+
+export const getTickets  = () => (dispatch) => {
+  fetchData()
+  .then(response => {
+    console.log(response)
+    return dispatch(setTickets(response))
+  }
+  )
+}
+
+
+
+
+
 
 let initialState = {
   tabs: [
@@ -27,9 +52,9 @@ let initialState = {
     { id: 4, text: "2 пересадки", isChecked: false, },
     { id: 5, text: "3 пересадки", isChecked: false, },
   ],
-  tickets: {
+  tickets: [
 
-  },
+  ],
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -40,6 +65,12 @@ export const appReducer = (state = initialState, action) => {
         ...action.data,
          
       };
+      case SET_TICKETS :
+        return {
+          ...state,
+          tickets:action.tickets
+        }
+      
 
     default:
       return state;

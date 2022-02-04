@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import classnames from "classnames";
 import styles from './tabs.module.css'
 import { fetchData } from "../../api/api";
+import { getTickets } from "../../redux/app-reducer";
 
 
 const Tabs = (props) => {
