@@ -1,13 +1,13 @@
 import React from "react";
 import { addMinutesDateString, convertMinsToHrsMins, dateStringToTime, dateToTime, formatDurationText, getTimeFromMins } from "../../utils/helpers/dataFormatter";
 import { priceFormatter } from "../../utils/helpers/priceFormatter";
-import { sortByTime } from "../../utils/helpers/sortTickets";
+import { sortByPrice, sortByTime } from "../../utils/helpers/sortTickets";
 import { numberOfTransfers } from "../../utils/helpers/transfersNumber";
 import styles from './tickets.module.css'
 
 const Tickets = (props) => {
   //props.tickets.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-  props.tickets.sort((a, b) => {
+/*   props.tickets.sort((a, b) => {
     let timeA=0;
     let timeB=0;
     
@@ -22,7 +22,10 @@ const Tickets = (props) => {
      return 1
    } return -1
 
-  });
+  }); */
+  //sortByPrice(props.tickets)
+  //sortByTime(props.tickets)
+
   
 
   

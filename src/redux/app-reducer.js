@@ -30,12 +30,12 @@ let initialState = {
   tabs: [
     {
       id: 1,
-      text: "Самый быстрый",
+      text: "Самый дешевый",
       isActive: true,
     },
     {
       id: 2,
-      text: "Самый дешевый",
+      text: "Самый быстрый",
       isActive: false,
     },
   ],
