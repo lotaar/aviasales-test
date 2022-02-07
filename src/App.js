@@ -16,6 +16,7 @@ function App(props) {
   },[])
   const tickets = useSelector((state)=> state.tickets)
   const tabs = useSelector((state)=> state.tabs)
+  const filters =useSelector((state)=>state.filters)
   console.log(tabs)
   return (
     <div className="wrap">
@@ -24,7 +25,7 @@ function App(props) {
       </div>
 
       <div className="container">
-        <Filters />
+        <Filters filters={filters}/>
         <div className="results">
           <Tabs tabs={tabs}/>
           <Tickets tickets={tickets} tabs={tabs}/>

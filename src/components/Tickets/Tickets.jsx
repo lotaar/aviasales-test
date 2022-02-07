@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { addMinutesDateString, convertMinsToHrsMins, dateStringToTime, dateToTime, formatDurationText, getTimeFromMins } from "../../utils/helpers/dataFormatter";
 import { priceFormatter } from "../../utils/helpers/priceFormatter";
 import { sortByPrice, sortByTime } from "../../utils/helpers/sortTickets";
@@ -6,6 +7,11 @@ import { numberOfTransfers } from "../../utils/helpers/transfersNumber";
 import styles from './tickets.module.css'
 
 const Tickets = (props) => {
+
+  const [visibleTickets, setVisibleTickets] = useState(5)
+  const showMoreItems = () => {
+    setVisibleTickets((prevValue) => prevValue + 5)
+  }
 
   props.tabs[0].isActive ? sortByPrice(props.tickets) : sortByTime(props.tickets)
   //props.tickets.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
@@ -34,7 +40,7 @@ const Tickets = (props) => {
 
     return(
       <div className={styles.tickets}>
-            {props.tickets.map((item,index) => (
+            {props.tickets.slice(0,visibleTickets).map((item,index) => (
       <div className={styles.ticket} key={index}>
           <div className={styles.ticketTop}>
                 <div className={styles.ticketPrice}>
@@ -73,6 +79,7 @@ const Tickets = (props) => {
           </div>
       </div>
     ))}
+    <button className={styles.showMoreButton} onClick={showMoreItems}>Показать еще 5 билетов!</button>
       </div>
     )
 }

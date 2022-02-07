@@ -10,7 +10,7 @@ async function fetchData() {
       `https://front-test.beta.aviasales.ru/tickets?searchId=${searchId}`
     );
     console.log(responseTickets)
-    return responseTickets.data.tickets.slice(0,20)
+    return responseTickets.data.tickets
     
     
   } catch (e) {

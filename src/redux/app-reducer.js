@@ -39,7 +39,7 @@ let initialState = {
       isActive: false,
     },
   ],
-  filers: [
+  filters: [
     { id: 1, text: "Все", isChecked: false },
     { id: 2, text: "Без пересадок", isChecked: false },
     { id: 3, text: "1 пересадка", isChecked: false },
