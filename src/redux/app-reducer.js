@@ -1,7 +1,7 @@
 import { fetchData } from "../api/api";
 import { dateStringToTime } from "../utils/helpers/dataFormatter";
 
-const SET_TAB = "SET-TAB";
+const SET_TAB = "SET_TAB";
 const SET_TICKETS = "SET_TICKETS";
 
 const setTickets = (tickets) => {
@@ -10,11 +10,11 @@ const setTickets = (tickets) => {
     tickets,
   };
 };
-
-const setTabs = (id, text, isActive) => {
+ 
+ export const setTabs = (item) => {
   return {
     type: SET_TAB,
-    data: { id, text, isActive },
+    data: item,
   };
 };
 
@@ -54,7 +54,11 @@ export const appReducer = (state = initialState, action) => {
     case SET_TAB:
       return {
         ...state,
-        ...action.data,
+        tabs:state.tabs.map((t)=>{
+          if(t.id === action.data.id) {
+            return {...t, isActive:!action.data.isActive}
+          } return {...t, isActive: !t.isActive}
+        })
       };
     case SET_TICKETS:
       return {

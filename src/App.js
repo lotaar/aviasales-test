@@ -27,7 +27,7 @@ function App(props) {
         <Filters />
         <div className="results">
           <Tabs tabs={tabs}/>
-          <Tickets tickets={tickets}/>
+          <Tickets tickets={tickets} tabs={tabs}/>
         </div>
       </div>
     </div>

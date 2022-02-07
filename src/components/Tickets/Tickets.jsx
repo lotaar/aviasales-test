@@ -6,6 +6,8 @@ import { numberOfTransfers } from "../../utils/helpers/transfersNumber";
 import styles from './tickets.module.css'
 
 const Tickets = (props) => {
+
+  props.tabs[0].isActive ? sortByPrice(props.tickets) : sortByTime(props.tickets)
   //props.tickets.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
 /*   props.tickets.sort((a, b) => {
     let timeA=0;

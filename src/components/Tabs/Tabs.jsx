@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import classnames from "classnames";
 import styles from './tabs.module.css'
 import { fetchData } from "../../api/api";
-import { getTickets } from "../../redux/app-reducer";
+import { getTickets, setTabs } from "../../redux/app-reducer";
+import { useDispatch } from "react-redux";
 
 
 const Tabs = (props) => {
-    useEffect(()=>{
-        fetchData()
-    })
+  const dispatch = useDispatch()
+
     
     return(
         <ul className={styles.tabs}>
@@ -16,7 +16,7 @@ const Tabs = (props) => {
       <li
         key={item.id}
          className={classnames(styles.tab, {[styles.tabIsActive]: item.isActive})} 
-        onClick={() => props.handleClick(item)}
+        onClick={() => dispatch(setTabs(item))}
       >
         {item.text}
       </li>
