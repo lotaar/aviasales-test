@@ -3,6 +3,7 @@ import { dateStringToTime } from "../utils/helpers/dataFormatter";
 
 const SET_TAB = "SET_TAB";
 const SET_TICKETS = "SET_TICKETS";
+const SET_FILTERS = "SET_FILTERS";
 
 const setTickets = (tickets) => {
   return {
@@ -10,12 +11,19 @@ const setTickets = (tickets) => {
     tickets,
   };
 };
- 
- export const setTabs = (item) => {
+
+export const setTabs = (item) => {
   return {
     type: SET_TAB,
     data: item,
   };
+};
+
+export const setFilters = (filters) => {
+  return { 
+    type: SET_FILTERS,
+    data:filters,
+   };
 };
 
 export const getTickets = () => (dispatch) => {
@@ -54,17 +62,23 @@ export const appReducer = (state = initialState, action) => {
     case SET_TAB:
       return {
         ...state,
-        tabs:state.tabs.map((t)=>{
-          if(t.id === action.data.id) {
-            return {...t, isActive:!action.data.isActive}
-          } return {...t, isActive: !t.isActive}
-        })
+        tabs: state.tabs.map((t) => {
+          if (t.id === action.data.id) {
+            return { ...t, isActive: !action.data.isActive };
+          }
+          return { ...t, isActive: !t.isActive };
+        }),
       };
     case SET_TICKETS:
       return {
         ...state,
         tickets: action.tickets,
       };
+      case SET_FILTERS:
+        alert('hello')
+        return{
+          
+        }
 
     default:
       return state;
