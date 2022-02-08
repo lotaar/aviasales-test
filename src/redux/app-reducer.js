@@ -48,11 +48,11 @@ let initialState = {
     },
   ],
   filters: [
-    { id: 1, text: "Все", isChecked: false },
-    { id: 2, text: "Без пересадок", isChecked: false },
-    { id: 3, text: "1 пересадка", isChecked: false },
-    { id: 4, text: "2 пересадки", isChecked: false },
-    { id: 5, text: "3 пересадки", isChecked: false },
+    { id: '-1', text: "Все", isChecked: false },
+    { id: '0', text: "Без пересадок", isChecked: false },
+    { id: '1', text: "1 пересадка", isChecked: false },
+    { id: '2', text: "2 пересадки", isChecked: false },
+    { id: '3', text: "3 пересадки", isChecked: false },
   ],
   tickets: [],
 };
@@ -75,9 +75,9 @@ export const appReducer = (state = initialState, action) => {
         tickets: action.tickets,
       };
       case SET_FILTERS:
-        alert('hello')
         return{
-          
+          ...state,
+          filters:[...action.data],
         }
 
     default:
