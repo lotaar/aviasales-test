@@ -4,6 +4,7 @@ import { dateStringToTime } from "../utils/helpers/dataFormatter";
 const SET_TAB = "SET_TAB";
 const SET_TICKETS = "SET_TICKETS";
 const SET_FILTERS = "SET_FILTERS";
+const SET_TICKETS_ERROR = 'SET_TICKETS_ERROR';
 
 const setTickets = (tickets) => {
   return {
@@ -11,6 +12,12 @@ const setTickets = (tickets) => {
     tickets,
   };
 };
+
+const setTicketsError = () => {
+  return {
+    type: SET_TICKETS_ERROR
+  }
+}
 
 export const setTabs = (item) => {
   return {
@@ -31,6 +38,8 @@ export const getTickets = () => (dispatch) => {
     console.log(tickets);
 
     return dispatch(setTickets(tickets));
+  }).catch(error=> {
+    dispatch(setTicketsError())
   });
 };
 
@@ -56,6 +65,7 @@ let initialState = {
   ],
   tickets: [],
   ticketsIsLoading:true,
+  isError:false,
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -81,6 +91,11 @@ export const appReducer = (state = initialState, action) => {
           ...state,
           filters:[...action.data],
         }
+        case SET_TICKETS_ERROR:
+          return{
+            ...state,
+            isError:true
+          }
 
     default:
       return state;

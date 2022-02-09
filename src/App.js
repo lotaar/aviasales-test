@@ -12,12 +12,15 @@ import store from "./redux/redux-store";
 function App(props) {
   const dispatch = useDispatch()
   useEffect(()=> {
+    
     dispatch(getTickets())
   },[])
   const tickets = useSelector((state)=> state.tickets)
   const tabs = useSelector((state)=> state.tabs)
   const filters =useSelector((state)=>state.filters)
+  const isError = useSelector((state) => state.isError)
   console.log(tabs)
+  console.log(isError)
   return (
     <div className="wrap">
       <div className="header">
@@ -28,7 +31,7 @@ function App(props) {
         <Filters filters={filters}/>
         <div className="results">
           <Tabs tabs={tabs}/>
-          <Tickets tickets={tickets} tabs={tabs}/>
+          {isError? <h1>Пожалуйста обновите страницу</h1> :<Tickets tickets={tickets} tabs={tabs}/>}
         </div>
       </div>
     </div>
