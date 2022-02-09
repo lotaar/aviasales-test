@@ -10,19 +10,20 @@ const Filters = (props) => {
     if (e.target.name == -1) {
       
       return dispatch(
-        setFilters([
-          { id: -1, text: "Все", isChecked: true },
-          { id: 0, text: "Без пересадок", isChecked: true },
-          { id: 1, text: "1 пересадка", isChecked: true },
-          { id: 2, text: "2 пересадки", isChecked: true },
-          { id: 3, text: "3 пересадки", isChecked: true },
-        ])
+        setFilters(props.filters.map((filter) => {
+          return {
+            ...filter,
+            isChecked: e.target.checked
+          }
+        })
+          
+        )
       );
     }
 
     return dispatch(
       setFilters(props.filters.map((filter) => {
-        if (filter.id === e.target.name && filter.id !==-1) {
+        if (filter.id == e.target.name) {
           return {
             ...filter,
             isChecked:!filter.isChecked

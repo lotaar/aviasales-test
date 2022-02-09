@@ -48,11 +48,11 @@ let initialState = {
     },
   ],
   filters: [
-    { id: '-1', text: "Все", isChecked: false },
-    { id: '0', text: "Без пересадок", isChecked: false },
-    { id: '1', text: "1 пересадка", isChecked: false },
-    { id: '2', text: "2 пересадки", isChecked: false },
-    { id: '3', text: "3 пересадки", isChecked: false },
+    { id: -1, text: "Все", isChecked: false },
+    { id: 0, text: "Без пересадок", isChecked: false },
+    { id: 1, text: "1 пересадка", isChecked: false },
+    { id: 2, text: "2 пересадки", isChecked: false },
+    { id: 3, text: "3 пересадки", isChecked: false },
   ],
   tickets: [],
 };
