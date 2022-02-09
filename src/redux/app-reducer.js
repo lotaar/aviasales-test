@@ -55,6 +55,7 @@ let initialState = {
     { id: 3, text: "3 пересадки", isChecked: false },
   ],
   tickets: [],
+  ticketsIsLoading:true,
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -73,6 +74,7 @@ export const appReducer = (state = initialState, action) => {
       return {
         ...state,
         tickets: action.tickets,
+        ticketsIsLoading:false,
       };
       case SET_FILTERS:
         return{

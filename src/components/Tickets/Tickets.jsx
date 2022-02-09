@@ -1,13 +1,15 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { addMinutesDateString, convertMinsToHrsMins, dateStringToTime, dateToTime, formatDurationText, getTimeFromMins } from "../../utils/helpers/dataFormatter";
 import { priceFormatter } from "../../utils/helpers/priceFormatter";
 import { sortByPrice, sortByTime } from "../../utils/helpers/sortTickets";
 import { numberOfTransfers } from "../../utils/helpers/transfersNumber";
+import Spinner from "../common/Spinner";
 import styles from './tickets.module.css'
 
 const Tickets = (props) => {
-
+  const isLoading = useSelector((state) => state.ticketsIsLoading)
   const [visibleTickets, setVisibleTickets] = useState(5)
   const showMoreItems = () => {
     setVisibleTickets((prevValue) => prevValue + 5)
@@ -36,7 +38,9 @@ const Tickets = (props) => {
 
   
 
-  
+  if(isLoading) {
+    return <Spinner/>
+  }
 
     return(
       <div className={styles.tickets}>
