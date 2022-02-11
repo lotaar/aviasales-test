@@ -66,7 +66,7 @@ let initialState = {
     '0': true,
     '1': true,
     '2': true,
-    '3': true
+    '3': true,
   },
   filters: [
     { id: -1, text: "Все", isChecked: true },
@@ -101,7 +101,7 @@ export const appReducer = (state = initialState, action) => {
       case SET_FILTERS:
         return{
           ...state,
-          filters:[...action.data],
+          v2Filters: {...action.data},
         }
         case SET_TICKETS_ERROR:
           return{

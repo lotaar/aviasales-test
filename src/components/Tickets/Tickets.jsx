@@ -16,24 +16,18 @@ import styles from "./tickets.module.css";
 
 const Tickets = (props) => {
   const isLoading = useSelector((state) => state.ticketsIsLoading);
-  const filters = useSelector((state) => state.filters);
+  const filters = useSelector((state) => state.v2Filters);
 
   const [visibleTicketsCount, setVisibleTicketsCount] = useState(5);
   const showMoreItems = () => {
-    setVisibleTicketsCount(visibleTicketsCount + 5);
+    setVisibleTicketsCount(visibleTicketsCount + 5); 
   };
 
   const visibleTickets = useMemo(() => {
-    const filteredTickets = props.tickets.filter((ticket) => {
-      const foundFilter = filters.find((filter) => {
-        return filter.id === ticket.stopsSum;
-      });
-
-      return foundFilter?.isChecked;
-    });
-
-    console.log(filteredTickets);
-
+    
+    const filteredTickets = props.tickets.filter((ticket) => Boolean(filters[ticket.stopsSum]))
+    
+    
     const sortedTickets = props.tabs[0].isActive
       ? sortByPrice(filteredTickets)
       : sortByTime(filteredTickets);

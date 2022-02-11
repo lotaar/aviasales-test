@@ -17,7 +17,7 @@ function App(props) {
   },[])
   const tickets = useSelector((state)=> state.tickets)
   const tabs = useSelector((state)=> state.tabs)
-  const filters =useSelector((state)=>state.filters)
+  const filters =useSelector((state)=>state.v2Filters)
   const isError = useSelector((state) => state.isError)
   console.log(tabs)
   console.log(isError)
