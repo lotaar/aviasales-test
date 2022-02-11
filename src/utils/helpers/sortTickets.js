@@ -1,5 +1,5 @@
 export const sortByPrice = (tickets) => {
-  tickets.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+  return tickets.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
 }
 
 export const sortByTime = (tickets) => {
@@ -20,22 +20,6 @@ export const sortByTime = (tickets) => {
 
   });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

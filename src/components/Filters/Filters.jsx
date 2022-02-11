@@ -7,7 +7,7 @@ const Filters = (props) => {
   const dispatch = useDispatch();
 
   const handleClick = (e, item) => {
-    if (e.target.name == -1) {
+    if (e.target.name === "-1") {
       
       return dispatch(
         setFilters(props.filters.map((filter) => {

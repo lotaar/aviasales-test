@@ -35,9 +35,14 @@ export const setFilters = (filters) => {
 
 export const getTickets = () => (dispatch) => {
   fetchData().then((tickets) => {
-    console.log(tickets);
+    const formattedTickets = tickets.map((ticket) => {
+      return {
+        ...ticket,
+        stopsSum: ticket.segments.reduce((a, b) => a.stops.length + b.stops.length)
+      }
+    })
 
-    return dispatch(setTickets(tickets));
+    return dispatch(setTickets(formattedTickets));
   }).catch(error=> {
     dispatch(setTicketsError())
   });
@@ -56,12 +61,19 @@ let initialState = {
       isActive: false,
     },
   ],
+  v2Filters: {
+    '-1': true,
+    '0': true,
+    '1': true,
+    '2': true,
+    '3': true
+  },
   filters: [
-    { id: -1, text: "Все", isChecked: false },
-    { id: 0, text: "Без пересадок", isChecked: false },
-    { id: 1, text: "1 пересадка", isChecked: false },
-    { id: 2, text: "2 пересадки", isChecked: false },
-    { id: 3, text: "3 пересадки", isChecked: false },
+    { id: -1, text: "Все", isChecked: true },
+    { id: 0, text: "Без пересадок", isChecked: true },
+    { id: 1, text: "1 пересадка", isChecked: true },
+    { id: 2, text: "2 пересадки", isChecked: true },
+    { id: 3, text: "3 пересадки", isChecked: true },
   ],
   tickets: [],
   ticketsIsLoading:true,
@@ -94,7 +106,8 @@ export const appReducer = (state = initialState, action) => {
         case SET_TICKETS_ERROR:
           return{
             ...state,
-            isError:true
+            isError:true,
+            
           }
 
     default:
