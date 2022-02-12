@@ -1,5 +1,4 @@
 import { fetchData } from "../api/api";
-import { dateStringToTime } from "../utils/helpers/dataFormatter";
 
 const SET_TAB = "SET_TAB";
 const SET_TICKETS = "SET_TICKETS";
@@ -65,20 +64,13 @@ let initialState = {
       isActive: false,
     },
   ],
-  v2Filters: {
+  filters: {
     "-1": true,
     0: true,
     1: true,
     2: true,
     3: true,
   },
-  filters: [
-    { id: -1, text: "Все", isChecked: true },
-    { id: 0, text: "Без пересадок", isChecked: true },
-    { id: 1, text: "1 пересадка", isChecked: true },
-    { id: 2, text: "2 пересадки", isChecked: true },
-    { id: 3, text: "3 пересадки", isChecked: true },
-  ],
   tickets: [],
   ticketsIsLoading: true,
   isError: false,
@@ -105,7 +97,7 @@ export const appReducer = (state = initialState, action) => {
     case SET_FILTERS:
       return {
         ...state,
-        v2Filters: { ...action.data },
+        filters: { ...action.data },
       };
     case SET_TICKETS_ERROR:
       return {

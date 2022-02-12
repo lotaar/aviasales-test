@@ -14,7 +14,7 @@ function App(props) {
   }, []);
   const tickets = useSelector((state) => state.tickets);
   const tabs = useSelector((state) => state.tabs);
-  const filters = useSelector((state) => state.v2Filters);
+  const filters = useSelector((state) => state.filters);
   const isError = useSelector((state) => state.isError);
   return (
     <div className="wrap">

@@ -12,7 +12,7 @@ import styles from "./tickets.module.css";
 
 const Tickets = (props) => {
   const isLoading = useSelector((state) => state.ticketsIsLoading);
-  const filters = useSelector((state) => state.v2Filters);
+  const filters = useSelector((state) => state.filters);
 
   const [visibleTicketsCount, setVisibleTicketsCount] = useState(5);
   const showMoreItems = () => {
