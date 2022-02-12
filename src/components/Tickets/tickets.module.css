@@ -1,0 +1,68 @@
+.ticket {
+  margin-top: 20px;
+  background: #ffffff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 504px;
+  height: 184px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.ticketInfo {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: space-between;
+}
+.ticketBottom {
+  flex: 2 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.ticketTop {
+  display: flex;
+  flex: 1 0 auto;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.ticketEndpoint {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 141px;
+}
+.ticketPrice {
+  font-size: 24px;
+  align-items: center;
+  color: #2196f3;
+}
+
+.ticketEndpointTitle {
+  font-size: 12px;
+  color: #a0b0b9;
+  text-transform: uppercase;
+}
+
+.showMoreButton {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  height: 50px;
+  width: 502px;
+  background: #2196f3;
+  border-radius: 5px;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  margin: 20px 0 50px 0;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.showMoreButton:hover {
+  background-color: #0b5e9e;
+}
