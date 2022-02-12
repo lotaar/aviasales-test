@@ -1,12 +1,12 @@
 import React from "react";
 
-import spinner from '../../assets/images/spinner.svg'
+import spinner from "../../assets/images/spinner.svg";
 
 const Spinner = () => {
-    return(
+  return (
     <div>
-        <img src={spinner} alt="" />
+      <img src={spinner} alt="" />
     </div>
-    )
-}
-export default Spinner
+  );
+};
+export default Spinner;

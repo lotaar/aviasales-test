@@ -13,10 +13,10 @@ const Filters = ({ filters }) => {
       return dispatch(
         setFilters({
           "-1": checked,
-          "0": checked,
-          "1": checked,
-          "2": checked,
-          "3": checked,
+          0: checked,
+          1: checked,
+          2: checked,
+          3: checked,
         })
       );
     }
@@ -44,10 +44,7 @@ const Filters = ({ filters }) => {
             </div>
           </div>
 
-          <div
-            className={styles.filterItemElement}
-            /* onClick={(e) => handleClick(e, item)}  */
-          >
+          <div className={styles.filterItemElement}>
             <div className={styles.filterItemValue}>
               <label className={styles.checkboxContainer}>
                 Без пересадок
@@ -62,10 +59,7 @@ const Filters = ({ filters }) => {
             </div>
           </div>
 
-          <div
-            className={styles.filterItemElement}
-            /* onClick={(e) => handleClick(e, item)}  */
-          >
+          <div className={styles.filterItemElement}>
             <div className={styles.filterItemValue}>
               <label className={styles.checkboxContainer}>
                 1 пересадка
@@ -80,10 +74,7 @@ const Filters = ({ filters }) => {
             </div>
           </div>
 
-          <div
-            className={styles.filterItemElement}
-            /* onClick={(e) => handleClick(e, item)}  */
-          >
+          <div className={styles.filterItemElement}>
             <div className={styles.filterItemValue}>
               <label className={styles.checkboxContainer}>
                 2 пересадки
@@ -98,10 +89,7 @@ const Filters = ({ filters }) => {
             </div>
           </div>
 
-          <div
-            className={styles.filterItemElement}
-            /* onClick={(e) => handleClick(e, item)}  */
-          >
+          <div className={styles.filterItemElement}>
             <div className={styles.filterItemValue}>
               <label className={styles.checkboxContainer}>
                 3 пересадки

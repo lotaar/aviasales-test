@@ -1,12 +1,8 @@
-import React, { useState, useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import {
-  addMinutesDateString,
   convertMinsToHrsMins,
-  dateStringToTime,
-  dateToTime,
   formatDurationText,
-  getTimeFromMins,
 } from "../../utils/helpers/dataFormatter";
 import { priceFormatter } from "../../utils/helpers/priceFormatter";
 import { sortByPrice, sortByTime } from "../../utils/helpers/sortTickets";
@@ -20,14 +16,14 @@ const Tickets = (props) => {
 
   const [visibleTicketsCount, setVisibleTicketsCount] = useState(5);
   const showMoreItems = () => {
-    setVisibleTicketsCount(visibleTicketsCount + 5); 
+    setVisibleTicketsCount(visibleTicketsCount + 5);
   };
 
   const visibleTickets = useMemo(() => {
-    
-    const filteredTickets = props.tickets.filter((ticket) => Boolean(filters[ticket.stopsSum]))
-    
-    
+    const filteredTickets = props.tickets.filter((ticket) =>
+      Boolean(filters[ticket.stopsSum])
+    );
+
     const sortedTickets = props.tabs[0].isActive
       ? sortByPrice(filteredTickets)
       : sortByTime(filteredTickets);

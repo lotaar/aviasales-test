@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
 body {
-  background-color:#F3F7FA ;
+  background-color: #f3f7fa;
   font-family: "Open Sans", sans-serif;
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 
 .wrap {
@@ -14,16 +14,13 @@ body {
 }
 
 .header {
-  
   display: flex;
-  justify-content: center;  
-
+  justify-content: center;
 }
 
 .header img {
   cursor: pointer;
   margin: 50px 0;
-  
 }
 
 .container {
@@ -36,5 +33,3 @@ body {
   width: 502px;
   margin-left: 20px;
 }
-
-

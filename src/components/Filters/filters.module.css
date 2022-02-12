@@ -43,23 +43,22 @@
 }
 
 .checkboxContainer input {
-    position: absolute;
-	 opacity: 0;
-	 cursor: pointer;
-	 height: 0;
-	 width: 0;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
 .checkmark {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 20px;
-        width: 20px;
-        background-image: url(../../assets/images/Form.png);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-image: url(../../assets/images/Form.png);
 }
 
-
-input[type="checkbox"]:checked + span  	{
-    background-image:url(../../assets/images/Checkbox.png) ;
-   }
+input[type="checkbox"]:checked + span {
+  background-image: url(../../assets/images/Checkbox.png);
+}

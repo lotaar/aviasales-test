@@ -4,7 +4,7 @@ import { dateStringToTime } from "../utils/helpers/dataFormatter";
 const SET_TAB = "SET_TAB";
 const SET_TICKETS = "SET_TICKETS";
 const SET_FILTERS = "SET_FILTERS";
-const SET_TICKETS_ERROR = 'SET_TICKETS_ERROR';
+const SET_TICKETS_ERROR = "SET_TICKETS_ERROR";
 
 const setTickets = (tickets) => {
   return {
@@ -15,9 +15,9 @@ const setTickets = (tickets) => {
 
 const setTicketsError = () => {
   return {
-    type: SET_TICKETS_ERROR
-  }
-}
+    type: SET_TICKETS_ERROR,
+  };
+};
 
 export const setTabs = (item) => {
   return {
@@ -27,25 +27,29 @@ export const setTabs = (item) => {
 };
 
 export const setFilters = (filters) => {
-  return { 
+  return {
     type: SET_FILTERS,
-    data:filters,
-   };
+    data: filters,
+  };
 };
 
 export const getTickets = () => (dispatch) => {
-  fetchData().then((tickets) => {
-    const formattedTickets = tickets.map((ticket) => {
-      return {
-        ...ticket,
-        stopsSum: ticket.segments.reduce((a, b) => a.stops.length + b.stops.length)
-      }
-    })
+  fetchData()
+    .then((tickets) => {
+      const formattedTickets = tickets.map((ticket) => {
+        return {
+          ...ticket,
+          stopsSum: ticket.segments.reduce(
+            (a, b) => a.stops.length + b.stops.length
+          ),
+        };
+      });
 
-    return dispatch(setTickets(formattedTickets));
-  }).catch(error=> {
-    dispatch(setTicketsError())
-  });
+      return dispatch(setTickets(formattedTickets));
+    })
+    .catch((error) => {
+      dispatch(setTicketsError());
+    });
 };
 
 let initialState = {
@@ -62,11 +66,11 @@ let initialState = {
     },
   ],
   v2Filters: {
-    '-1': true,
-    '0': true,
-    '1': true,
-    '2': true,
-    '3': true,
+    "-1": true,
+    0: true,
+    1: true,
+    2: true,
+    3: true,
   },
   filters: [
     { id: -1, text: "Все", isChecked: true },
@@ -76,8 +80,8 @@ let initialState = {
     { id: 3, text: "3 пересадки", isChecked: true },
   ],
   tickets: [],
-  ticketsIsLoading:true,
-  isError:false,
+  ticketsIsLoading: true,
+  isError: false,
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -96,19 +100,18 @@ export const appReducer = (state = initialState, action) => {
       return {
         ...state,
         tickets: action.tickets,
-        ticketsIsLoading:false,
+        ticketsIsLoading: false,
       };
-      case SET_FILTERS:
-        return{
-          ...state,
-          v2Filters: {...action.data},
-        }
-        case SET_TICKETS_ERROR:
-          return{
-            ...state,
-            isError:true,
-            
-          }
+    case SET_FILTERS:
+      return {
+        ...state,
+        v2Filters: { ...action.data },
+      };
+    case SET_TICKETS_ERROR:
+      return {
+        ...state,
+        isError: true,
+      };
 
     default:
       return state;
